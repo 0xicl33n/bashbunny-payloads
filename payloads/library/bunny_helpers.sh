@@ -16,4 +16,4 @@ export TARGET_IP=$(cat $leasefile | grep ^lease | awk '{ print $2 }' | sort | un
 export TARGET_HOSTNAME=$(cat $leasefile | grep hostname | awk '{print $2 }' \
 		| sort | uniq | tail -n1 | sed "s/^[ \t]*//" | sed 's/\"//g' | sed 's/;//')
 export HOST_IP=$(cat /etc/network/interfaces.d/usb0 | grep address | awk {'print $2'})
-
+export VPN_IP=$(cat /etc/network/interfaces.d/tun0 | grep address | awk {'print $2'})

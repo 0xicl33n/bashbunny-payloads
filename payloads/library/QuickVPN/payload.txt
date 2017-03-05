@@ -1,0 +1,35 @@
+# Title:         QuickVPN
+# Author:        0xicl33n
+# Version:       1.0
+#
+# Opens a VPN connection after an internet connection is established
+# 
+# Requires openvpn,fping and xprobe
+# apt-get install openvpn xprobe
+#
+# Blue Blinking...............Testing internet connection.
+# Blue........................Online.
+# Green Blinking..............Connecting to VPN.
+# Green.......................Finished.
+# Red Blinking................Failed to connect.
+
+#Check host OS
+
+test=$(xprobe2 172.16.64.10 | grep -ic "Linux")
+if [$test -eq 1]
+	ATTACKMODE ECM_ETHERNET #linux
+else
+	ATTACKMODE RNDIS_ETHERNET #windows
+fi
+
+#Check internet
+LED B 0
+echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+	LED B 
+	DELAY 1000
+    LED G 0 && openvpn /etc/openvpn/client.conf &
+    LED G
+else
+	LED R 0
+fi
