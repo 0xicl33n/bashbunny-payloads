@@ -28,8 +28,8 @@ echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
 if [ $? -eq 0 ]; then
 	LED B 
 	DELAY 1000
-    LED G 0 && openvpn /etc/openvpn/client.conf &
-    LED G
+        LED G 0 && openvpn /etc/openvpn/client.conf &
+        LED G
 else
 	LED R 0
 fi
