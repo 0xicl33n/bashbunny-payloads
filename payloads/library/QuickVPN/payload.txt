@@ -13,7 +13,6 @@
 # Green.......................Finished.
 # Red Blinking................Failed to connect.
 
-#Check host OS
 
 #ATTACKMODE ECM_ETHERNET #linux
 ATTACKMODE RNDIS_ETHERNET #windows
