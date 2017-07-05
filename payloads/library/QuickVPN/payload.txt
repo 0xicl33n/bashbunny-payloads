@@ -4,8 +4,8 @@
 #
 # Opens a VPN connection after an internet connection is established
 # 
-# Requires openvpn,fping and xprobe
-# apt-get install openvpn xprobe
+# Requires openvpn
+# apt-get install openvpn
 #
 # Blue Blinking...............Testing internet connection.
 # Blue........................Online.
