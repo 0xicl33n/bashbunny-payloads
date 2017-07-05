@@ -15,12 +15,9 @@
 
 #Check host OS
 
-test=$(xprobe2 172.16.64.10 | grep -ic "Linux")
-if [$test -eq 1]
-	ATTACKMODE ECM_ETHERNET #linux
-else
-	ATTACKMODE RNDIS_ETHERNET #windows
-fi
+#ATTACKMODE ECM_ETHERNET #linux
+ATTACKMODE RNDIS_ETHERNET #windows
+
 
 #Check internet
 LED B 0
